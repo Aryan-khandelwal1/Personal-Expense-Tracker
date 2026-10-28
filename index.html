@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpendWise | Dashboard</title><link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-icon">₹</span><span>SpendWise<small>PERSONAL FINANCE</small></span></a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav>
+        <a class="nav-link active" href="index.html"><span>▦</span> Dashboard</a>
+        <a class="nav-link" href="transactions.html"><span>↕</span> Transactions</a>
+        <a class="nav-link" href="budget.html"><span>◷</span> Budgets</a>
+        <a class="nav-link" href="reports.html"><span>▥</span> Reports</a>
+        <a class="nav-link" href="about.html"><span>ⓘ</span> About Project</a>
+      </nav>
+      <div class="sidebar-bottom"><div class="tip-icon">✦</div><strong>Smart money tip</strong><p>Small daily savings can make a big difference over time.</p><a href="budget.html">Plan a budget →</a></div>
+      <div class="profile"><div class="avatar">AK</div><div><strong>Student Account</strong><small>Personal workspace</small></div></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><div><div class="eyebrow">MONDAY, OCTOBER 19, 2026</div><h1>Dashboard</h1><p class="subheading">Here's what's happening with your money.</p></div><button class="primary-btn" id="openAdd">＋ Add transaction</button></header>
+      <section class="welcome-card"><div><span class="welcome-tag">YOUR FINANCES AT A GLANCE</span><h2>Make every rupee count.</h2><p>Track spending, build better habits, and stay in control of your money.</p><a class="light-btn" href="reports.html">View your report <span>→</span></a></div><div class="welcome-art"><div class="coin coin-one">₹</div><div class="coin coin-two">↗</div><div class="art-circle">₹</div></div></section>
+      <section class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span>Total balance</span><span class="stat-icon purple">₹</span></div><div class="stat-value" id="balance">₹0</div><div class="stat-note"><span class="positive">●</span> Income minus expenses</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Total income</span><span class="stat-icon green">↙</span></div><div class="stat-value" id="income">₹0</div><div class="stat-note">Money received</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Total expenses</span><span class="stat-icon orange">↗</span></div><div class="stat-value" id="expenses">₹0</div><div class="stat-note">Money spent</div></article>
+        <article class="stat-card"><div class="stat-top"><span>Transactions</span><span class="stat-icon blue">⇄</span></div><div class="stat-value" id="transactionCount">0</div><div class="stat-note">All recorded entries</div></article>
+      </section>
+      <section class="content-grid">
+        <article class="panel spending-panel"><div class="panel-heading"><div><h3>Spending overview</h3><p>Your expenses by category</p></div><a href="reports.html" class="text-link">Full report ↗</a></div><div id="categoryChart" class="category-chart"><div class="empty-state">Add an expense to see your spending breakdown.</div></div></article>
+        <article class="panel"><div class="panel-heading"><div><h3>Monthly budget</h3><p>Keep your spending on track</p></div><a href="budget.html" class="text-link">Manage</a></div><div class="budget-summary"><div class="budget-ring"><div><strong id="budgetPercent">0%</strong><small>used</small></div></div><div><div class="muted">Spent this month</div><strong class="budget-amount" id="monthSpent">₹0</strong><div class="muted" id="budgetRemaining">Budget: ₹10,000</div></div></div><div class="progress-track"><span id="budgetProgress"></span></div><p class="tiny-note">Your budget is a guide, not a restriction.</p></article>
+      </section>
+      <section class="panel recent-panel"><div class="panel-heading"><div><h3>Recent transactions</h3><p>Your latest money activity</p></div><a href="transactions.html" class="text-link">View all →</a></div><div class="table-wrap"><table><thead><tr><th>TRANSACTION</th><th>CATEGORY</th><th>DATE</th><th>AMOUNT</th></tr></thead><tbody id="recentRows"></tbody></table></div></section>
+      <footer>SpendWise © 2026 <span>Built with HTML · CSS · JavaScript</span></footer>
+    </main>
+  </div>
+  <dialog id="transactionDialog" class="modal"><form id="transactionForm"><div class="modal-head"><div><h2>Add transaction</h2><p>Record income or an expense.</p></div><button type="button" class="close-btn" id="closeAdd">×</button></div><label>Description<input name="description" placeholder="e.g. College canteen" required maxlength="60"></label><div class="form-row"><label>Type<select name="type"><option value="expense">Expense</option><option value="income">Income</option></select></label><label>Amount (₹)<input name="amount" type="number" min="1" step="0.01" placeholder="250" required></label></div><div class="form-row"><label>Category<select name="category"><option>Food</option><option>Transport</option><option>Education</option><option>Shopping</option><option>Bills</option><option>Entertainment</option><option>Health</option><option>Salary</option><option>Freelance</option><option>Other</option></select></label><label>Date<input name="date" type="date" required></label></div><div class="modal-actions"><button type="button" class="secondary-btn" id="cancelAdd">Cancel</button><button class="primary-btn" type="submit">Save transaction</button></div></form></dialog>
+  <script src="app.js"></script>
+</body></html>
